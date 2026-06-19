@@ -14,6 +14,17 @@ namespace StreamVibeAPI.DAL.Concrete
             _context = context;
         }
 
+        public async Task<Content?> GetByIdAsync(int id)
+        {
+            return await _context.Contents
+                       .Include(c=>c.ContentGenres)
+                           .ThenInclude(c=>c.Genre)
+                       .Include(c=>c.ContentLanguages)
+                       .Include(c=>c.ContentPeople)
+                           .ThenInclude(c=>c.Person)
+                       .FirstOrDefaultAsync(c=>c.Id == id);
+        }
+
         public async Task<List<Content>> GetFeaturedAsync()
         {
             return await _context.Contents.Where(c => c.IsFeatured == true).ToListAsync();
@@ -41,6 +52,23 @@ namespace StreamVibeAPI.DAL.Concrete
             return await query.Take(limit).ToListAsync();  
         }
 
+        public async Task<List<Review>> GetReviewsAsync(int contentId)
+        {
+            return await _context.Reviews
+                        .Where(c => c.ContentId == contentId)
+                        .OrderByDescending(c => c.CreatedAt)
+                        .ToListAsync();
+        }
+
+        public async Task<List<Season>> GetSeasonsAsync(int contentId)
+        {
+            return await _context.Seasons
+              .Include(x => x.Episodes)
+              .Where(x => x.ContentId == contentId)
+              .OrderBy(x => x.SeasonNumber)
+              .ToListAsync(); ;
+        }
+
         public async Task<List<Content>> GetTopTenAsync(string type)
         {
             return await _context.Contents
@@ -50,5 +78,7 @@ namespace StreamVibeAPI.DAL.Concrete
                                 .OrderBy(c => c.TopTenRank)
                                 .ToListAsync();
         }
+
+
     }
 }

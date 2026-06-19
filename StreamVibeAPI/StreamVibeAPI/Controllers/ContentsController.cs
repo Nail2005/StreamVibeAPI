@@ -26,7 +26,7 @@ namespace StreamVibeAPI.Controllers
             {
                 Success = true,
                 Message = "Ok",
-                Data = data 
+                Data = data
             };
 
             return Ok(result);
@@ -41,12 +41,12 @@ namespace StreamVibeAPI.Controllers
                 {
                     Success = false,
                     Message = "Type parameter is required.",
-                    Data = null 
+                    Data = null
                 });
 
             }
 
-            var data = await _genreService.TGetAllAsync(type);  
+            var data = await _genreService.TGetAllAsync(type);
             var result = new ApiResponse<object>
             {
                 Success = true,
@@ -57,7 +57,7 @@ namespace StreamVibeAPI.Controllers
             return Ok(result);
         }
 
-        [HttpGet("top-ten")] 
+        [HttpGet("top-ten")]
         public async Task<IActionResult> GetTopTen([FromQuery] string? type)
         {
             if (string.IsNullOrWhiteSpace(type))
@@ -80,10 +80,10 @@ namespace StreamVibeAPI.Controllers
 
         }
 
-        [HttpGet("filtered")]       
-        public async Task<IActionResult> GetContent([FromQuery] string? type,  [FromQuery] string? filter, [FromQuery] int limit=10)
+        [HttpGet("filtered")]
+        public async Task<IActionResult> GetContent([FromQuery] string? type, [FromQuery] string? filter, [FromQuery] int limit = 10)
         {
-            if(string.IsNullOrWhiteSpace(type))
+            if (string.IsNullOrWhiteSpace(type))
             {
                 return BadRequest(new ApiResponse<object>
                 {
@@ -91,9 +91,9 @@ namespace StreamVibeAPI.Controllers
                     Message = "Type parameter is required.",
                     Data = null
                 });
-            }   
+            }
 
-            if(string.IsNullOrWhiteSpace(filter))
+            if (string.IsNullOrWhiteSpace(filter))
             {
                 return BadRequest(new ApiResponse<object>
                 {
@@ -112,7 +112,112 @@ namespace StreamVibeAPI.Controllers
                 Data = data
             };
 
-            return Ok(result);  
+            return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetContentDetail(string id)
+        {
+            if (!int.TryParse(id, out int contentId))
+            {
+                return BadRequest(new ApiResponse<object>
+                {
+                    Success = false,
+                    Message = "Id must be numeric",
+                    Data = null
+                });
+            }
+
+            var data = await _contentservice.TGetDetailAsync(contentId);
+
+            if (data == null)
+            {
+                return NotFound(new ApiResponse<object>
+                {
+                    Success = false,
+                    Message = "Content not found",
+                    Data = null
+                });
+            }
+
+            var result = new ApiResponse<object>
+            {
+                Success = true,
+                Message = "Ok",
+                Data = data
+            };
+
+            return Ok(result);
+        }
+
+        [HttpGet("{id}/seasons")]
+        public async Task<IActionResult> GetSeasons(string id)
+        {
+            if (!int.TryParse(id, out int contentId))
+            {
+                return BadRequest(new ApiResponse<object>
+                {
+                    Success = false,
+                    Message = "Id must be numeric",
+                    Data = null
+                });
+            }
+
+            var detail = await _contentservice.TGetDetailAsync(contentId);
+
+            if (detail == null)
+            {
+                return NotFound(new ApiResponse<object>
+                {
+                    Success = false,
+                    Message = "Content not found",
+                    Data = null
+                });
+            }
+
+            var values = await _contentservice.TGetSeasonsAsync(contentId);
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "OK",
+                Data = values
+            });
+        }
+
+        [HttpGet("{id}/reviews")]
+        public async Task<IActionResult> GetReviews(string id)
+        {
+            if (!int.TryParse(id, out int contentId))
+            {
+                return BadRequest(new ApiResponse<object>
+                {
+                    Success = false,
+                    Message = "Id must be numeric",
+                    Data = null
+                });
+            }
+
+            var detail = await _contentservice.TGetDetailAsync(contentId);
+
+            if (detail == null)
+            {
+                return NotFound(new ApiResponse<object>
+                {
+                    Success = false,
+                    Message = "Content not found",
+                    Data = null
+                });
+            }
+
+            var values = await _contentservice.TGetReviewsAsync(contentId);
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "OK",
+                Data = values
+            });
         }
     }
 }

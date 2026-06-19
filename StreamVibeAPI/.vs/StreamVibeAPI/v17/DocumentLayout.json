@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibe\\streamvibeapi\\streamvibeapi\\dtos\\toptendto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\dtos\\toptendto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibe\\streamvibeapi\\streamvibeapi\\dtos\\herodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\dtos\\herodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibe\\streamvibeapi\\streamvibeapi\\controllers\\contentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\controllers\\contentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -27,40 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TopTenDto.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\DTOs\\TopTenDto.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\DTOs\\TopTenDto.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\DTOs\\TopTenDto.cs",
-              "RelativeToolTip": "StreamVibeAPI\\DTOs\\TopTenDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAewA0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-19T13:02:43.622Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HeroDto.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\DTOs\\HeroDto.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\DTOs\\HeroDto.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\DTOs\\HeroDto.cs",
-              "RelativeToolTip": "StreamVibeAPI\\DTOs\\HeroDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAewA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-19T13:02:32.916Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "ContentsController.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\ContentsController.cs",
               "RelativeDocumentMoniker": "StreamVibeAPI\\Controllers\\ContentsController.cs",
               "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\ContentsController.cs",
               "RelativeToolTip": "StreamVibeAPI\\Controllers\\ContentsController.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAIwGYAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAowH4AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-19T12:38:05.694Z",
+              "WhenOpened": "2026-06-19T21:40:34.524Z",
               "EditorCaption": ""
             }
           ]
