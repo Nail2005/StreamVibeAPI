@@ -1,46 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\",
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibeapi\\streamvibeapi\\controllers\\planscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\controllers\\planscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibe\\streamvibeapi\\streamvibeapi\\dtos\\toptendto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\dtos\\toptendto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibeapi\\streamvibeapi\\business\\concrete\\planmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\business\\concrete\\planmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibe\\streamvibeapi\\streamvibeapi\\dtos\\herodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\dtos\\herodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibeapi\\streamvibeapi\\entities\\pricingplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\entities\\pricingplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibeapi\\streamvibeapi\\business\\concrete\\genremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\business\\concrete\\genremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibeapi\\streamvibeapi\\business\\abstract\\iplanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\business\\abstract\\iplanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibeapi\\streamvibeapi\\controllers\\genrescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\controllers\\genrescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibeapi\\streamvibeapi\\dtos\\genredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\dtos\\genredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibeapi\\streamvibeapi\\dtos\\plandto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\dtos\\plandto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibeapi\\streamvibeapi\\controllers\\devicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\controllers\\devicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibeapi\\streamvibeapi\\controllers\\faqscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\controllers\\faqscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibe\\streamvibeapi\\streamvibeapi\\controllers\\contentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\controllers\\contentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,136 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GenreManager.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Business\\Concrete\\GenreManager.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\Business\\Concrete\\GenreManager.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Business\\Concrete\\GenreManager.cs",
-              "RelativeToolTip": "StreamVibeAPI\\Business\\Concrete\\GenreManager.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAZAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "TopTenDto.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\DTOs\\TopTenDto.cs",
+              "RelativeDocumentMoniker": "StreamVibeAPI\\DTOs\\TopTenDto.cs",
+              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\DTOs\\TopTenDto.cs*",
+              "RelativeToolTip": "StreamVibeAPI\\DTOs\\TopTenDto.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAewA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T23:33:32.607Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PricingPlan.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Entities\\PricingPlan.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\Entities\\PricingPlan.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Entities\\PricingPlan.cs",
-              "RelativeToolTip": "StreamVibeAPI\\Entities\\PricingPlan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T22:55:27.866Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PlanDto.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\DTOs\\PlanDto.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\DTOs\\PlanDto.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\DTOs\\PlanDto.cs",
-              "RelativeToolTip": "StreamVibeAPI\\DTOs\\PlanDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T22:55:08.62Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IPlanService.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Business\\Abstract\\IPlanService.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\Business\\Abstract\\IPlanService.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Business\\Abstract\\IPlanService.cs",
-              "RelativeToolTip": "StreamVibeAPI\\Business\\Abstract\\IPlanService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T22:50:32.947Z",
+              "WhenOpened": "2026-06-19T13:02:43.622Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PlanManager.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Business\\Concrete\\PlanManager.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\Business\\Concrete\\PlanManager.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Business\\Concrete\\PlanManager.cs",
-              "RelativeToolTip": "StreamVibeAPI\\Business\\Concrete\\PlanManager.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBUAAAAAAAAAAAAAAA==",
+              "Title": "HeroDto.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\DTOs\\HeroDto.cs",
+              "RelativeDocumentMoniker": "StreamVibeAPI\\DTOs\\HeroDto.cs",
+              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\DTOs\\HeroDto.cs",
+              "RelativeToolTip": "StreamVibeAPI\\DTOs\\HeroDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAewA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T22:44:10.181Z",
+              "WhenOpened": "2026-06-19T13:02:32.916Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GenresController.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\GenresController.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\Controllers\\GenresController.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\GenresController.cs",
-              "RelativeToolTip": "StreamVibeAPI\\Controllers\\GenresController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAvAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ContentsController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\ContentsController.cs",
+              "RelativeDocumentMoniker": "StreamVibeAPI\\Controllers\\ContentsController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\ContentsController.cs",
+              "RelativeToolTip": "StreamVibeAPI\\Controllers\\ContentsController.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAIwGYAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T22:09:50.845Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlansController.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\PlansController.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\Controllers\\PlansController.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\PlansController.cs",
-              "RelativeToolTip": "StreamVibeAPI\\Controllers\\PlansController.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T22:38:10.582Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GenreDto.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\DTOs\\GenreDto.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\DTOs\\GenreDto.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\DTOs\\GenreDto.cs",
-              "RelativeToolTip": "StreamVibeAPI\\DTOs\\GenreDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T23:34:42.869Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DevicesController.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\DevicesController.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\Controllers\\DevicesController.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\DevicesController.cs",
-              "RelativeToolTip": "StreamVibeAPI\\Controllers\\DevicesController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA+wBgAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T22:36:21.142Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FaqsController.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\FaqsController.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\Controllers\\FaqsController.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\FaqsController.cs",
-              "RelativeToolTip": "StreamVibeAPI\\Controllers\\FaqsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-18T22:33:56.696Z",
+              "WhenOpened": "2026-06-19T12:38:05.694Z",
               "EditorCaption": ""
             }
           ]

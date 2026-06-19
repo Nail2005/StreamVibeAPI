@@ -45,11 +45,13 @@ builder.Services.AddScoped<IGenreRepository, GenreRepository>();
 builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
 builder.Services.AddScoped<IPlanRepository, PlanRepository>();
 builder.Services.AddScoped<IFaqRepository, FaqRepository>();
+builder.Services.AddScoped<IContentRepository, ContentRepository>();        
 
 builder.Services.AddScoped<IGenreService, GenreManager>();
 builder.Services.AddScoped<IFaqService, FaqManager>();
 builder.Services.AddScoped<IPlanService, PlanManager>();
 builder.Services.AddScoped<IDeviceService, DeviceManager>();
+builder.Services.AddScoped<IContentService, ContentManager>();  
 
 
 var app = builder.Build();
