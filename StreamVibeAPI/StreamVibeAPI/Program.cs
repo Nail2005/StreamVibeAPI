@@ -1,11 +1,15 @@
-using DotNetEnv;
+﻿using DotNetEnv;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using StreamVibeAPI.Business.Abstract;
 using StreamVibeAPI.Business.Concrete;
 using StreamVibeAPI.Business.Mapping;
 using StreamVibeAPI.DAL.Abstract;
 using StreamVibeAPI.DAL.Concrete;
 using StreamVibeAPI.DAL.Context;
+using StreamVibeAPI.Middleware;
+using System.Text;
 
 Env.Load();
 
@@ -16,7 +20,39 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new()
+    {
+        Title = "StreamVibe API",
+        Version = "v1"
+    });
+
+    options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+        Description = "JWT token daxil edin. Nümunə: eyJhbGciOiJIUzI1NiIs..."
+    });
+
+    options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    {
+        {
+            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            {
+                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                {
+                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
@@ -51,8 +87,34 @@ builder.Services.AddScoped<IGenreService, GenreManager>();
 builder.Services.AddScoped<IFaqService, FaqManager>();
 builder.Services.AddScoped<IPlanService, PlanManager>();
 builder.Services.AddScoped<IDeviceService, DeviceManager>();
-builder.Services.AddScoped<IContentService, ContentManager>();  
+builder.Services.AddScoped<IContentService, ContentManager>(); 
 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();  
+builder.Services.AddScoped<IUserService, UserManager>();
+builder.Services.AddScoped<ITokenService, TokenManager>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters =
+            new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = 
+                    new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(
+                            builder.Configuration["JWT_SECRET"]!
+                            )
+                        ),
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero
+            };
+    });
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -65,7 +127,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowFrontend");   
+app.UseCors("AllowFrontend");
+
+app.UseMiddleware<ExceptionMiddleware>();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

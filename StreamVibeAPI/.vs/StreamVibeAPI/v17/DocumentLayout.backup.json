@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibe\\streamvibeapi\\streamvibeapi\\controllers\\contentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\controllers\\contentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibe\\streamvibeapi\\streamvibeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|c:\\users\\administrator\\onedrive\\desktop\\streamvibe\\streamvibeapi\\streamvibeapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE538884-DC60-464D-8284-6551FE41F81A}|StreamVibeAPI\\StreamVibeAPI.csproj|solutionrelative:streamvibeapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ContentsController.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\ContentsController.cs",
-              "RelativeDocumentMoniker": "StreamVibeAPI\\Controllers\\ContentsController.cs",
-              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\ContentsController.cs*",
-              "RelativeToolTip": "StreamVibeAPI\\Controllers\\ContentsController.cs*",
-              "ViewState": "AgIAAI8AAAAAAAAAAAAswNsAAAAPAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\Program.cs",
+              "RelativeDocumentMoniker": "StreamVibeAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\Program.cs*",
+              "RelativeToolTip": "StreamVibeAPI\\Program.cs*",
+              "ViewState": "AgIAACIAAAAAAAAAAAAmwDYAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-19T21:40:34.524Z",
+              "WhenOpened": "2026-06-27T19:55:36.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "StreamVibeAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\OneDrive\\Desktop\\StreamVibe\\StreamVibeAPI\\StreamVibeAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "StreamVibeAPI\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAUwE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-27T18:13:21.904Z",
               "EditorCaption": ""
             }
           ]

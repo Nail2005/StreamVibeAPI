@@ -32,17 +32,23 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Genre> Genres { get; set; }
 
+    public virtual DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
+
     public virtual DbSet<Person> People { get; set; }
 
     public virtual DbSet<PricingPlan> PricingPlans { get; set; }
+
+    public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
 
     public virtual DbSet<Review> Reviews { get; set; }
 
     public virtual DbSet<Season> Seasons { get; set; }
 
+    public virtual DbSet<User> Users { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=LenovoSlim3\\SqlExpress01;Database=StreamVibeDb;Trusted_Connection=True;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Server=LenovoSlim3\\sqlexpress01; Database=StreamVibeDb; Trusted_Connection=true; TrustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -241,6 +247,28 @@ public partial class AppDbContext : DbContext
                 .IsUnicode(false);
         });
 
+        modelBuilder.Entity<PasswordResetToken>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Password__3214EC0770CCA779");
+
+            entity.ToTable("PasswordReset_Tokens");
+
+            entity.HasIndex(e => e.Token, "UQ__Password__1EB4F8171AAB95EE").IsUnique();
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.ExpiresAt).HasColumnType("datetime");
+            entity.Property(e => e.Token)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.User).WithMany(p => p.PasswordResetTokens)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__PasswordR__UserI__114A936A");
+        });
+
         modelBuilder.Entity<Person>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__People__3214EC0708B3E735");
@@ -276,6 +304,28 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.PriceYearly)
                 .HasColumnType("decimal(6, 2)")
                 .HasColumnName("Price_yearly");
+        });
+
+        modelBuilder.Entity<RefreshToken>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Refresh___3214EC07D8C78EB6");
+
+            entity.ToTable("Refresh_Tokens");
+
+            entity.HasIndex(e => e.Token, "UQ__Refresh___1EB4F817B417BB86").IsUnique();
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.ExpiresAt).HasColumnType("datetime");
+            entity.Property(e => e.Token)
+                .HasMaxLength(500)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.User).WithMany(p => p.RefreshTokens)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Refresh_T__UserI__0B91BA14");
         });
 
         modelBuilder.Entity<Review>(entity =>
@@ -320,6 +370,33 @@ public partial class AppDbContext : DbContext
                 .HasForeignKey(d => d.ContentId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Seasons__Content__6383C8BA");
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC0790A0A135");
+
+            entity.HasIndex(e => e.Username, "UQ__Users__536C85E49DB8F86D").IsUnique();
+
+            entity.HasIndex(e => e.Email, "UQ__Users__A9D10534CF729B74").IsUnique();
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Email)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.PasswordHash)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("Password_hash");
+            entity.Property(e => e.UpdatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Username)
+                .HasMaxLength(20)
+                .IsUnicode(false);
         });
 
         OnModelCreatingPartial(modelBuilder);
