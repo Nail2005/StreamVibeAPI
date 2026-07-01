@@ -7,7 +7,9 @@ namespace StreamVibeAPI.DAL.Abstract
         Task<User?> GetByEmailAsync(string email);
         Task<User?> GetByUsernameAsync(string username);
         Task<User?> GetByIdAsync(int id);
+        Task<User?> GetProfileAsync(int id);
         Task AddAsync(User user);       
-        Task SaveChangesAsync();    
+        Task SaveChangesAsync();  
+        
     }
 }

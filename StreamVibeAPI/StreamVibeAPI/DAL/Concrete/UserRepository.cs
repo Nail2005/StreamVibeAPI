@@ -35,6 +35,14 @@ namespace StreamVibeAPI.DAL.Concrete
             return await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
         }
 
+        public async Task<User?> GetProfileAsync(int id)
+        {
+            return await _context.Users
+                                    .Include(x=>x.UserSubscription)
+                                        .ThenInclude(x=>x.Plan)
+                                 .FirstOrDefaultAsync(x=>x.Id == id);
+        }
+
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();

@@ -14,6 +14,7 @@ namespace StreamVibeAPI.Business.Abstract
 
         Task<UserResponseDto> MeAsync(int userId);  
 
+        Task<UserProfileSubscribeDto> GetProfileAsync(int userId);  
 
     }
 }

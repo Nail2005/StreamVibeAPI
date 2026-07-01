@@ -16,6 +16,8 @@ public partial class AppDbContext : DbContext
     {
     }
 
+    public virtual DbSet<ContactMessage> ContactMessages { get; set; }
+
     public virtual DbSet<Content> Contents { get; set; }
 
     public virtual DbSet<ContentGenre> ContentGenres { get; set; }
@@ -36,6 +38,8 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Person> People { get; set; }
 
+    public virtual DbSet<PlanFeature> PlanFeatures { get; set; }
+
     public virtual DbSet<PricingPlan> PricingPlans { get; set; }
 
     public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
@@ -44,14 +48,44 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Season> Seasons { get; set; }
 
+    public virtual DbSet<SubscriptionHistory> SubscriptionHistories { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
+
+    public virtual DbSet<UserSubscription> UserSubscriptions { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=LenovoSlim3\\sqlexpress01; Database=StreamVibeDb; Trusted_Connection=true; TrustServerCertificate=true;");
+        => optionsBuilder.UseSqlServer("Server=LenovoSlim3\\SqlExpress01;Database=StreamVibeDb;Trusted_Connection=True;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<ContactMessage>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Contact___3214EC0760E318F1");
+
+            entity.ToTable("Contact_Messages");
+
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Email)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.FirstName)
+                .HasMaxLength(100)
+                .IsUnicode(false);
+            entity.Property(e => e.LastName)
+                .HasMaxLength(100)
+                .IsUnicode(false);
+            entity.Property(e => e.PhoneCountryCode)
+                .HasMaxLength(10)
+                .IsUnicode(false);
+            entity.Property(e => e.PhoneNumber)
+                .HasMaxLength(20)
+                .IsUnicode(false);
+        });
+
         modelBuilder.Entity<Content>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Content__3214EC0714D40E56");
@@ -285,6 +319,23 @@ public partial class AppDbContext : DbContext
                 .IsUnicode(false);
         });
 
+        modelBuilder.Entity<PlanFeature>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__PlanFeat__3214EC07436DE8E2");
+
+            entity.Property(e => e.FeatureName)
+                .HasMaxLength(100)
+                .IsUnicode(false);
+            entity.Property(e => e.FeatureValue)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.Plan).WithMany(p => p.PlanFeatures)
+                .HasForeignKey(d => d.PlanId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_PlanFeatures_Plans");
+        });
+
         modelBuilder.Entity<PricingPlan>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Pricing___3214EC0725331B8A");
@@ -372,6 +423,35 @@ public partial class AppDbContext : DbContext
                 .HasConstraintName("FK__Seasons__Content__6383C8BA");
         });
 
+        modelBuilder.Entity<SubscriptionHistory>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Subscrip__3214EC072CE7DFF3");
+
+            entity.ToTable("SubscriptionHistory");
+
+            entity.Property(e => e.BillingCycle)
+                .HasMaxLength(20)
+                .IsUnicode(false);
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.ExpiredAt).HasColumnType("datetime");
+            entity.Property(e => e.StartedAt).HasColumnType("datetime");
+            entity.Property(e => e.Status)
+                .HasMaxLength(20)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.Plan).WithMany(p => p.SubscriptionHistories)
+                .HasForeignKey(d => d.PlanId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_SubscriptionHistory_Plans");
+
+            entity.HasOne(d => d.User).WithMany(p => p.SubscriptionHistories)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_SubscriptionHistory_Users");
+        });
+
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Users__3214EC0790A0A135");
@@ -397,6 +477,39 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Username)
                 .HasMaxLength(20)
                 .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<UserSubscription>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__UserSubs__3214EC0774C96AC4");
+
+            entity.HasIndex(e => e.UserId, "UQ__UserSubs__1788CC4D05A600F4").IsUnique();
+
+            entity.Property(e => e.BillingCycle)
+                .HasMaxLength(20)
+                .IsUnicode(false);
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.ExpiresAt).HasColumnType("datetime");
+            entity.Property(e => e.StartedAt).HasColumnType("datetime");
+            entity.Property(e => e.Status)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasDefaultValue("active");
+            entity.Property(e => e.UpdatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+
+            entity.HasOne(d => d.Plan).WithMany(p => p.UserSubscriptions)
+                .HasForeignKey(d => d.PlanId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_UserSubscriptions_Plans");
+
+            entity.HasOne(d => d.User).WithOne(p => p.UserSubscription)
+                .HasForeignKey<UserSubscription>(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_UserSubscriptions_Users");
         });
 
         OnModelCreatingPartial(modelBuilder);

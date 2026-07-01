@@ -16,7 +16,7 @@ namespace StreamVibeAPI.Business.Mapping
             CreateMap<Content, ContentDto>().ReverseMap();
             CreateMap<Content, HeroDto>().ReverseMap(); 
             CreateMap<Review, ReviewDto>().ReverseMap();    
-
+            CreateMap<ContactMessage, ContactMessageRequestDto>().ReverseMap(); 
         }
     }
 }

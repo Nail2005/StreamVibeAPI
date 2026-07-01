@@ -17,7 +17,17 @@ namespace StreamVibeAPI.DAL.Concrete
 
         public async Task<List<PricingPlan>> GetAllAsync()
         {
-            return await _context.PricingPlans.ToListAsync();
+            return await _context.PricingPlans.Include(x=> x.PlanFeatures).ToListAsync();
+        }
+
+        public async Task<PricingPlan?> GetByIdAsync(int id)
+        {
+            return await _context.PricingPlans.FirstOrDefaultAsync(x=>x.Id == id);
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -79,9 +79,9 @@ namespace StreamVibeAPI.Business.Concrete
             await _refreshTokenRepository.SaveChangesAsync();
 
             var result = new AuthResponseDto
-            { 
+            {
                 User = new UserResponseDto
-                { 
+                {
                     Id = user.Id,
                     Username = user.Username,
                     Email = user.Email,
@@ -92,13 +92,13 @@ namespace StreamVibeAPI.Business.Concrete
                 ExpiresIn = 900
             };
 
-            return result;  
+            return result;
 
         }
 
         public async Task<AuthResponseDto> LoginAsync(LoginRequestDto request)
         {
-            if(string.IsNullOrWhiteSpace(request.Email))
+            if (string.IsNullOrWhiteSpace(request.Email))
             {
                 throw new BadRequestException("Email is required.");
             }
@@ -109,18 +109,18 @@ namespace StreamVibeAPI.Business.Concrete
             }
 
             var user = await _userRepository.GetByEmailAsync(request.Email);
-            if(user==null)
+            if (user == null)
             {
                 throw new UnauthorizedException("Invalid email or password.");
             }
 
             var passwordValid = BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash);
-            if(!passwordValid)
+            if (!passwordValid)
             {
                 throw new UnauthorizedException("Invalid email or password.");
             }
 
-            if(!user.IsActive)
+            if (!user.IsActive)
             {
                 throw new ForbiddenException("User account is deactivated.");
             }
@@ -146,7 +146,7 @@ namespace StreamVibeAPI.Business.Concrete
             var result = new AuthResponseDto
             {
                 User = new UserResponseDto
-                { 
+                {
                     Id = user.Id,
                     Username = user.Username,
                     Email = user.Email,
@@ -162,22 +162,22 @@ namespace StreamVibeAPI.Business.Concrete
 
         public async Task<RefreshTokenResponseDto> RefreshTokenAsync(RefreshTokenRequestDto request)
         {
-            if(string.IsNullOrWhiteSpace(request.RefreshToken))
+            if (string.IsNullOrWhiteSpace(request.RefreshToken))
             {
-                throw new BadRequestException("Refresh token is required.");  
+                throw new BadRequestException("Refresh token is required.");
             }
 
-            var existingToken = await _refreshTokenRepository.GetByTokenAsync(request.RefreshToken); 
-            if(existingToken == null)
+            var existingToken = await _refreshTokenRepository.GetByTokenAsync(request.RefreshToken);
+            if (existingToken == null)
             {
                 throw new UnauthorizedException("Invalid refresh token.");
-            }    
-            
-            if(existingToken.ExpiresAt < DateTime.UtcNow)
+            }
+
+            if (existingToken.ExpiresAt < DateTime.UtcNow)
             {
                 await _refreshTokenRepository.DeleteAsync(existingToken);
                 await _refreshTokenRepository.SaveChangesAsync();
-                throw new UnauthorizedException("Refresh token has expired.");  
+                throw new UnauthorizedException("Refresh token has expired.");
             }
 
             var user = await _userRepository.GetByIdAsync(existingToken.UserId);
@@ -198,7 +198,7 @@ namespace StreamVibeAPI.Business.Concrete
                 ExpiresAt = DateTime.UtcNow.AddDays(7)
             };
 
-            await _refreshTokenRepository.AddAsync(newRefreshToken);    
+            await _refreshTokenRepository.AddAsync(newRefreshToken);
             await _refreshTokenRepository.SaveChangesAsync();
 
             var result = new RefreshTokenResponseDto
@@ -208,19 +208,19 @@ namespace StreamVibeAPI.Business.Concrete
                 ExpiresIn = 900
             };
 
-            return result;  
+            return result;
         }
 
         public async Task LogoutAsync(LogoutRequestDto request)
         {
-            if(string.IsNullOrWhiteSpace(request.RefreshToken))
+            if (string.IsNullOrWhiteSpace(request.RefreshToken))
             {
                 return;
             }
-            
+
             var token = await _refreshTokenRepository.GetByTokenAsync(request.RefreshToken);
 
-            if(token != null)
+            if (token != null)
             {
                 await _refreshTokenRepository.DeleteAsync(token);
                 await _refreshTokenRepository.SaveChangesAsync();
@@ -240,11 +240,59 @@ namespace StreamVibeAPI.Business.Concrete
             var result = new UserResponseDto
             {
                 Id = userId,
-                Username = user.Username,   
+                Username = user.Username,
                 Email = user.Email,
                 CreatedAt = user.CreatedAt,
-            };  
-             
+            };
+
+            return result;
+        }
+
+        public async Task<UserProfileSubscribeDto> GetProfileAsync(int userId)
+        {
+            var user = await _userRepository.GetProfileAsync(userId);
+
+            if (user == null)
+            {
+                throw new NotFoundException("User not found");
+            }
+
+
+            var subscription =
+                         user.UserSubscription != null &&
+                         (user.UserSubscription.Status == "active" ||
+                         user.UserSubscription.Status == "trial")
+                         ? user.UserSubscription
+                         : null;
+
+            var result = new UserProfileSubscribeDto
+            { 
+                User = new UserResponseDto
+                {
+                    Id = user.Id,
+                    Username = user.Username,
+                    Email = user.Email,
+                    CreatedAt = user.CreatedAt,
+                },
+
+                Subscription = subscription == null ? null
+                                 : new UserSubscriptionProfileDto
+                                 {
+                                     Id = subscription.Id,
+                                     BillingCycle = subscription.BillingCycle,
+                                     IsTrial = subscription.IsTrial,
+                                     Status = subscription.Status,
+                                     StartedAt = subscription.StartedAt,
+                                     ExpiresAt = subscription.ExpiresAt,
+
+                                     Plan = new UserSubscriptionPlanDto
+                                     {
+                                         Id = subscription.Plan.Id,
+                                         Name = subscription.Plan.Name,
+                                         Price = subscription.BillingCycle == "monthly" ? subscription.Plan.PriceMonthly : subscription.Plan.PriceYearly
+                                     }
+                                 }
+            };
             return result;
         }
     }
